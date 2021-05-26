@@ -27,6 +27,4 @@ stages:
           containerRegistry: 'DockerHub'
           repository: 'digic/weatherapi'
           command: 'buildAndPush'
-          Dockerfile: '**/Dockerfile'
-          tags: 
-           $(tag)
+          Dockerfile: '**/Dockerfile'         
