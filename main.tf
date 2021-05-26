@@ -22,6 +22,12 @@ terraform {
     }    
 }
 
+variable imagebuild {
+  type        = string
+  default     = ""
+  description = "Latest Image Build"
+}
+
 
 resource "azurerm_resource_group" "tf_test" {
     name = "tfmainrg"
@@ -38,7 +44,7 @@ resource "azurerm_container_group" "tfcg_test" {
     os_type                 = "Linux"
      container {
       name            = "weatherapi"
-      image           = "digic/weatherapi"
+      image           = "digic/weatherapi:${var.imagebuild}"
         cpu             = "1"
         memory          = "1"
 
